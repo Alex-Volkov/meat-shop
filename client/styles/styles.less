@@ -1,0 +1,203 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Nunito Sans, sans-serif;
+}
+a,p,span, h1, h2, h3, label, input, textarea, button{
+  font-family: Nunito Sans, sans-serif;
+
+}
+
+#map {
+  height: 500px;
+}
+
+#tweet {
+  height: 500px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@opacity: .8;
+@bgColor: #000;
+@textColor: #fff;
+nav {
+  .mobile-menu{
+    display:none;
+    background-color: @bgColor;
+    opacity: @opacity;
+  }
+  .fa-bars{
+    font-size: 2rem;
+    color: @textColor;
+    padding-right: 1rem;
+  }
+
+  min-height: 20rem;
+  background: #000000 url(../images/meat-header-crop.jpg) no-repeat 0 50%;
+  background-size: cover;
+  ul {
+    background-color: @bgColor;
+    opacity: @opacity;
+    a {
+      transition: all .3s;
+      &:hover{
+        opacity: .7;
+        color: #fff;
+        text-decoration: none;
+      }
+      text-transform: uppercase;
+      color: @textColor;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      padding: .5rem 0;
+    }
+
+  }
+  @media(max-width: 767px){
+    .desktop-menu{
+      display:none;
+    }
+    .mobile-menu{
+      .language-selector a{
+        font-size: 2rem;
+      }
+      display:block;
+      .menu-items{
+        display:none;
+      }
+      .menu-items.activated{
+        display:block;
+      }
+    }
+    span{
+      text-transform: uppercase;
+      font-size: 2rem;
+      color: @textColor;
+    }
+  }
+}
+
+.body-section {
+  & > .container{
+    box-shadow: 1px 1px 5px #ccc;
+  }
+  .promo-section {
+    background-color: #fff;
+    margin-top: -5rem;
+    h1, h2, p {
+      text-align: center;
+    }
+  }
+  .image-secion {
+    h3 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
+    }
+    .img {
+      width: 100%;
+      height: 25rem;
+      border: 1px solid #eee;
+    }
+  }
+}
+
+footer {
+  .image-holder {
+    min-height: 20rem;
+    background: @bgColor url(../images/meat-footer-crop.jpg) no-repeat 0 50%;
+    background-size: cover;
+
+  }
+  .container {
+    margin-top: -3rem;
+    p {
+      margin-bottom: 0;
+      padding: .5rem;
+      background-color: @bgColor;
+      opacity: @opacity;
+      text-align: center;
+      color: @textColor;
+
+    }
+  }
+}
+
+#tweets {
+  margin-top:2rem;
+  list-style: none;
+  li {
+    .tweet-screen-name {
+      color: #8899a6;
+      margin-bottom: 0;
+    }
+    .tweet-user-name {
+      margin-top: .3rem;
+    }
+    background: #fff;
+    border-bottom: 1px solid #e1e8ed;
+    padding: .5rem;
+    &:hover {
+      background-color: #f5f8fa;
+    }
+    img {
+      float: left;
+      padding-right: .5rem;
+    }
+    a {
+      color: #292f33;
+      text-decoration: none;
+    }
+
+  }
+}
+
+.icons-section {
+  padding: 5rem 0;
+  a {
+    text-align: center;
+    display: block;
+    padding: 2rem 0;
+  }
+  .fa {
+    font-size: 4rem;
+    background-color: @bgColor;
+    color: #fff;
+    line-height: 10rem;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+  }
+}
+.container.form-section{
+  background-color: #ccc;
+  padding: 10rem;
+  position: relative;
+  bottom:-5rem;
+}
+
+.language-selector{
+  a{
+    &.active{
+      font-weight: bold;
+    }
+    transition: all .3s;
+    &:hover{
+      opacity: .7;
+      color: #fff;
+      text-decoration: none;
+    }
+    cursor: pointer;
+    color: #fff;
+    padding-left: 1rem;
+    text-transform: uppercase;
+
+  }
+}
