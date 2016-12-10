@@ -19,5 +19,9 @@ The app was developed with Node.js of version 7, latest LTS (6.x) will also work
 
 To run this project you need to do `npm install` and `npm run`. It will run a server at `http://localhost:8080` 
 
+### Requirements
+Specification and mockups are in the `exercise` folder 
+
+
 Live example available here [http://meat.sparrow.cf/]
 
