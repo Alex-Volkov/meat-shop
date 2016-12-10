@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const port = 8080;
+const port = process.argv[2] || 8080;
 const Tweet = require('./tweet');
 const Flickr = require('./flickr');
 const app = express();
