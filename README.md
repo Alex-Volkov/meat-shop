@@ -14,7 +14,9 @@ Click on the `text` of a twitter message will lead to the original tweet
 
 
 The app was developed with Node.js of version 7, latest LTS (6.x) will also work well
- 
+
+### Install notes 
+
 To run this project you need to do `npm install` and `npm run`. It will run a server at `http://localhost:8080` 
 
 Live example available here [http://meat.sparrow.cf/]
