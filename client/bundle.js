@@ -21863,8 +21863,35 @@
 
 				$.ajax({
 					url: '/api/flickr/search', method: 'GET', dataType: 'json', success: function success(data) {
-						_this2.emit('flickrData', data);
+						_this2.preloadImages(data);
+						// this.emit('flickrData', data);
 					}
+				});
+			}
+
+			/**
+	   * images preloading
+	   * @param imagesUrls
+	   */
+
+		}, {
+			key: 'preloadImages',
+			value: function preloadImages(imagesUrls) {
+				var _this3 = this;
+
+				var pre = [];
+				var loaded = [];
+				var loadedCount = 0;
+				imagesUrls.forEach(function (elem, index) {
+					pre.push(new Image());
+					pre[index].addEventListener('load', function () {
+						loadedCount++;
+						loaded.push({ url: elem.url });
+						if (imagesUrls.length == loadedCount) {
+							_this3.emit('flickrData', loaded);
+						}
+					});
+					pre[index].src = elem.url;
 				});
 			}
 
@@ -21875,7 +21902,7 @@
 		}, {
 			key: 'getTwitterData',
 			value: function getTwitterData() {
-				var _this3 = this;
+				var _this4 = this;
 
 				$.ajax({
 					url: '/api/twitter/search',
@@ -21883,7 +21910,6 @@
 					dataType: 'json',
 					data: { geo: this.geo, keyword: 'meat is healthy' },
 					success: function success(data) {
-						console.log(data.statuses);
 						var tweets = data.statuses.map(function (elem) {
 							return {
 								id: elem.id_str,
@@ -21893,7 +21919,7 @@
 								imageUrl: elem.user.profile_image_url
 							};
 						});
-						_this3.emit('twitterData', tweets);
+						_this4.emit('twitterData', tweets);
 					}
 				});
 			}
@@ -32869,7 +32895,7 @@
 /* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -32899,18 +32925,22 @@
 		}
 
 		_createClass(Presentation, [{
-			key: "componentDidMount",
+			key: 'componentDidMount',
 			value: function componentDidMount() {}
 		}, {
-			key: "render",
+			key: 'render',
 			value: function render() {
 				var data = this.props.items.images;
+				var imagesClasses = ['img'];
+				if (data.length && data[0].image && imagesClasses.indexOf('image-loaded') == -1) {
+					imagesClasses.push('image-loaded');
+				}
 				return _react2.default.createElement(
-					"div",
-					{ className: "container image-secion" },
+					'div',
+					{ className: 'container image-secion' },
 					_react2.default.createElement(
-						"div",
-						{ className: "row" },
+						'div',
+						{ className: 'row' },
 						data.map(function (elem) {
 							var style = {};
 							if (!!elem.image) {
@@ -32922,16 +32952,16 @@
 							}
 
 							return _react2.default.createElement(
-								"div",
-								{ className: "col-xs-12 col-sm-6 col-md-3", key: elem.header },
+								'div',
+								{ className: 'col-xs-12 col-sm-6 col-md-3', key: elem.header },
 								_react2.default.createElement(
-									"h3",
+									'h3',
 									null,
 									elem.header
 								),
-								_react2.default.createElement("div", { className: "img", style: style }),
+								_react2.default.createElement('div', { className: imagesClasses.join(' '), style: style }),
 								_react2.default.createElement(
-									"p",
+									'p',
 									null,
 									elem.text
 								)

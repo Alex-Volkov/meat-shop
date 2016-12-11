@@ -57,9 +57,31 @@ class ApiWorker extends EventEmitter {
 	getFlickerData() {
 		$.ajax({
 			url: '/api/flickr/search', method: 'GET', dataType: 'json', success: (data) => {
-				this.emit('flickrData', data);
+				this.preloadImages(data);
+				// this.emit('flickrData', data);
 			}
 		});
+	}
+
+	/**
+	 * images preloading
+	 * @param imagesUrls
+	 */
+	preloadImages(imagesUrls) {
+		let pre = [];
+		let loaded = [];
+		let loadedCount = 0;
+		imagesUrls.forEach( (elem, index) => {
+			pre.push(new Image());
+			pre[index].addEventListener('load', () => {
+				loadedCount++;
+				loaded.push({url: elem.url});
+				if(imagesUrls.length == loadedCount ){
+					this.emit('flickrData', loaded);
+				}
+			});
+			pre[index].src = elem.url;
+		})
 	}
 
 	/**
@@ -72,7 +94,6 @@ class ApiWorker extends EventEmitter {
 			dataType: 'json',
 			data: {geo: this.geo, keyword: 'meat is healthy'},
 			success: (data) => {
-				console.log(data.statuses);
 				let tweets = data.statuses.map((elem) => {
 					return {
 						id: elem.id_str,

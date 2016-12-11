@@ -3,7 +3,8 @@ body, html {
   padding: 0;
   font-family: Nunito Sans, sans-serif;
 }
-a,p,span, h1, h2, h3, label, input, textarea, button{
+
+a, p, span, h1, h2, h3, label, input, textarea, button {
   font-family: Nunito Sans, sans-serif;
 
 }
@@ -26,18 +27,18 @@ ul {
 @bgColor: #000;
 @textColor: #fff;
 nav {
-  .mobile-menu{
+  .mobile-menu {
     padding: 1rem 0;
-    display:none;
+    display: none;
     background-color: @bgColor;
     opacity: @opacity;
   }
-  .fa-bars{
-    &:active{
+  .fa-bars {
+    &:active {
       //color:#eee;
-      opacity:.5;
+      opacity: .5;
     }
-    transition:all .3s;
+    transition: all .3s;
     font-size: 2rem;
     color: @textColor;
     padding-right: 1rem;
@@ -51,7 +52,7 @@ nav {
     opacity: @opacity;
     a {
       transition: all .3s;
-      &:hover{
+      &:hover {
         opacity: .7;
         color: #fff;
         text-decoration: none;
@@ -65,23 +66,25 @@ nav {
     }
 
   }
-  @media(max-width: 767px){
-    .desktop-menu{
-      display:none;
+  @media (max-width: 767px) {
+    .desktop-menu {
+      display: none;
     }
-    .mobile-menu{
-      .language-selector a{
+
+    .mobile-menu {
+      .language-selector a {
         font-size: 2rem;
       }
-      display:block;
-      .menu-items{
-        display:none;
+      display: block;
+      .menu-items {
+        display: none;
       }
-      .menu-items.activated{
-        display:block;
+      .menu-items.activated {
+        display: block;
       }
     }
-    span{
+
+    span {
       text-transform: uppercase;
       font-size: 2rem;
       color: @textColor;
@@ -90,7 +93,7 @@ nav {
 }
 
 .body-section {
-  & > .container{
+  & > .container {
     box-shadow: 1px 1px 5px #ccc;
   }
   .promo-section {
@@ -111,7 +114,19 @@ nav {
       width: 100%;
       height: 25rem;
       border: 1px solid #eee;
+
     }
+  }
+}
+.image-loaded {
+  animation: imageAppear 1s;
+}
+@keyframes imageAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -137,7 +152,7 @@ footer {
 }
 
 #tweets {
-  margin-top:2rem;
+  margin-top: 2rem;
   list-style: none;
   li {
     .tweet-screen-name {
@@ -182,33 +197,34 @@ footer {
     height: 10rem;
   }
 }
-.container.form-section{
+
+.container.form-section {
   background-color: #ccc;
   padding: 10rem;
   position: relative;
-  bottom:-5rem;
-  @media(max-width: 768px){
-    padding:3rem;
+  bottom: -5rem;
+  @media (max-width: 768px) {
+    padding: 3rem;
   }
 }
 
-.language-selector{
-  a{
-    &.active{
+.language-selector {
+  a {
+    &.active {
       //color:#fff;
-      opacity:1;
+      opacity: 1;
       font-weight: bold;
     }
     //padding: 0 10px;
     transition: all .3s;
-    &:hover{
+    &:hover {
       opacity: .8;
       color: #fff;
       text-decoration: none;
     }
     cursor: pointer;
     color: #fff;
-    opacity:.6;
+    opacity: .6;
     padding-left: 1rem;
     text-transform: uppercase;
 

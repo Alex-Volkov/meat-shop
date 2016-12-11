@@ -110,6 +110,17 @@ nav ul a:hover {
   height: 25rem;
   border: 1px solid #eee;
 }
+.image-loaded {
+  animation: imageAppear 1s;
+}
+@keyframes imageAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 footer .image-holder {
   min-height: 20rem;
   background: #000 url(../images/meat-footer-crop.jpg) no-repeat 0 50%;
