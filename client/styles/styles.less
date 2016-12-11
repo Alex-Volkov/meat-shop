@@ -27,11 +27,17 @@ ul {
 @textColor: #fff;
 nav {
   .mobile-menu{
+    padding: 1rem 0;
     display:none;
     background-color: @bgColor;
     opacity: @opacity;
   }
   .fa-bars{
+    &:active{
+      //color:#eee;
+      opacity:.5;
+    }
+    transition:all .3s;
     font-size: 2rem;
     color: @textColor;
     padding-right: 1rem;
@@ -181,21 +187,28 @@ footer {
   padding: 10rem;
   position: relative;
   bottom:-5rem;
+  @media(max-width: 768px){
+    padding:3rem;
+  }
 }
 
 .language-selector{
   a{
     &.active{
+      //color:#fff;
+      opacity:1;
       font-weight: bold;
     }
+    //padding: 0 10px;
     transition: all .3s;
     &:hover{
-      opacity: .7;
+      opacity: .8;
       color: #fff;
       text-decoration: none;
     }
     cursor: pointer;
     color: #fff;
+    opacity:.6;
     padding-left: 1rem;
     text-transform: uppercase;
 
